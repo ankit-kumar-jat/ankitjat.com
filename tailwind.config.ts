@@ -4,18 +4,13 @@ export default {
   darkMode: ['class'],
   content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+    },
     extend: {
-      fontFamily: {
-        sans: [
-          'Inter',
-          'ui-sans-serif',
-          'system-ui',
-          'sans-serif',
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol',
-          'Noto Color Emoji',
-        ],
+      transitionTimingFunction: {
+        custom: 'cubic-bezier(0.645,0.045,0.355,1)',
       },
       borderRadius: {
         lg: 'var(--radius)',
