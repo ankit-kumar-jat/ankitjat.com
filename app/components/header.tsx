@@ -1,15 +1,8 @@
 import { Link, NavLink, NavLinkProps } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { Logo } from '~/components/logo'
+import { LogoIcon } from '~/components/icons'
+import { NAV_LINKS } from '~/config'
 import { cn } from '~/lib/utils'
-
-const navOptions = [
-  { title: 'About', to: '/#about' },
-  { title: 'Experience', to: '/#experience' },
-  { title: 'Project', to: '/#projects' },
-  { title: 'Contact', to: '/#contact' },
-  { title: 'Blog', to: '/blog' },
-]
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -55,7 +48,7 @@ function Header() {
               className="group text-primary"
               title="Ankit Kumar Jat's site logo"
             >
-              <Logo className="h-11 w-11 group-hover:fill-primary/20" />
+              <LogoIcon className="h-11 w-11 group-hover:fill-primary/20" />
             </Link>
           </div>
           <nav
@@ -65,7 +58,7 @@ function Header() {
             )}
           >
             <ul className="flex flex-col gap-8 lg:flex-row lg:items-center">
-              {navOptions.map(({ title, ...rest }) => (
+              {NAV_LINKS.map(({ title, ...rest }) => (
                 <li key={title} className="[counter-increment:nav-links]">
                   <NavItem title={title} {...rest} />
                 </li>

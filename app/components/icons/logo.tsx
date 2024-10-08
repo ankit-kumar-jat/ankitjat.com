@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react'
 
-function Logo({ ...rest }: SVGProps<SVGSVGElement>) {
+function LogoIcon({ ...rest }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="42"
@@ -23,4 +23,4 @@ function Logo({ ...rest }: SVGProps<SVGSVGElement>) {
   )
 }
 
-export { Logo }
+export default LogoIcon
