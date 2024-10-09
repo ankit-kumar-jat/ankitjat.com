@@ -55,24 +55,24 @@ const COLORS = [
 const POINTS_COUNT = 150
 
 function DynamicLinesBackground() {
-  const isInitialized = useRef<boolean>(false)
+  const canvasSpaceRef = useRef<CanvasSpace | null>(null)
 
   useEffect(() => {
-    if (!isInitialized.current) {
+    if (!canvasSpaceRef.current) {
       document.getElementById('#lines-bg_canvas')?.remove()
       floatySpace()
-      isInitialized.current = true
     }
-
-    return
   }, [])
 
   function floatySpace() {
+    canvasSpaceRef.current?.removeAll()
+
     let canvasSpace = new CanvasSpace('#lines-bg').setup({
       bgcolor: 'transparent',
       resize: true,
       retina: true,
     })
+    canvasSpaceRef.current = canvasSpace
     let canvasForm = canvasSpace.getForm()
 
     let pts = new Group()

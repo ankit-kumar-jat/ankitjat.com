@@ -7,6 +7,7 @@ function SocialLinks() {
     <div className="flex flex-nowrap gap-2 text-muted-foreground">
       {SOCIAL_MEDIA.map(({ title, link }) => (
         <Link
+          key={title}
           className="p-2 outline-none transition-all ease-custom focus-within:-translate-y-2 focus-within:text-primary hover:-translate-y-2 hover:text-primary"
           to={link}
           title={title}

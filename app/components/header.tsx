@@ -12,6 +12,10 @@ function Header() {
     setIsMenuOpen(prev => !prev)
   }
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 50) {
@@ -60,7 +64,7 @@ function Header() {
             <ul className="flex flex-col gap-8 lg:flex-row lg:items-center">
               {NAV_LINKS.map(({ title, ...rest }) => (
                 <li key={title} className="[counter-increment:nav-links]">
-                  <NavItem title={title} {...rest} />
+                  <NavItem title={title} {...rest} onClick={handleLinkClick} />
                 </li>
               ))}
             </ul>
