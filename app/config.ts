@@ -22,7 +22,11 @@ const PROJECTS = [
     tech: ['RemixJS', 'React', 'TypeScript', 'TailwindCSS', 'Cloudflare'],
     githubLink: 'https://github.com/ankit-kumar-jat/tomeki',
     liveLink: 'https://www.tomeki.site',
-    image: '/tomeki.png',
+    image: [
+      { type: 'image/avif', url: '/project-images/tomeki.avif' },
+      { type: 'image/webp', url: '/project-images/tomeki.webp' },
+      { type: 'image/png', url: '/project-images/tomeki.png' },
+    ],
   },
   {
     title: 'Tomeki Blog',
@@ -31,7 +35,11 @@ const PROJECTS = [
     tech: ['RemixJS', 'React', 'TypeScript', 'TailwindCSS', 'Cloudflare'],
     githubLink: 'https://github.com/ankit-kumar-jat/tomeki',
     liveLink: 'https://www.tomeki.site/blogs',
-    image: '/tomeki-blog.png',
+    image: [
+      { type: 'image/avif', url: '/project-images/tomeki-blog.avif' },
+      { type: 'image/webp', url: '/project-images/tomeki-blog.webp' },
+      { type: 'image/png', url: '/project-images/tomeki-blog.png' },
+    ],
   },
   {
     title: 'Internet Speed Tester',
@@ -40,7 +48,11 @@ const PROJECTS = [
     tech: ['RemixJS', 'React', 'TypeScript', 'TailwindCSS'],
     githubLink: 'https://github.com/ankit-kumar-jat/internet-speed-test-ndt7',
     liveLink: 'https://ankit-kumar-jat.github.io/internet-speed-test-ndt7/',
-    image: '/internet-speed-tester.png',
+    image: [
+      { type: 'image/avif', url: '/project-images/internet-speed-tester.avif' },
+      { type: 'image/webp', url: '/project-images/internet-speed-tester.webp' },
+      { type: 'image/png', url: '/project-images/internet-speed-tester.png' },
+    ],
   },
   {
     title: 'Image Optimizer',
@@ -49,7 +61,10 @@ const PROJECTS = [
     tech: ['NodeJS', 'Express', 'JQuery'],
     githubLink: 'https://github.com/ankit-kumar-jat/imageoptimizer',
     liveLink: 'http://imageoptimizer.glitch.me/',
-    image: '/image-optimizer.png',
+    image: [
+      { type: 'image/avif', url: '/project-images/image-optimizer.avif' },
+      { type: 'image/png', url: '/project-images/image-optimizer.png' },
+    ],
   },
   {
     title: 'Limp-Dark',
@@ -58,7 +73,10 @@ const PROJECTS = [
     tech: ['Jekyll', 'Scss', 'Markdown', 'JavaScript'],
     githubLink: 'https://github.com/ankit-kumar-jat/limp-dark',
     liveLink: 'https://ankit-kumar-jat.github.io/limp-dark',
-    image: '/limp-dark.png',
+    image: [
+      { type: 'image/avif', url: '/project-images/limp-dark.avif' },
+      { type: 'image/png', url: '/project-images/limp-dark.png' },
+    ],
   },
   {
     title: 'Iss Info',
@@ -67,7 +85,11 @@ const PROJECTS = [
     tech: ['NodeJS', 'LeafletJS', 'JQuery', 'Scss', 'Webpack'],
     githubLink: 'https://github.com/ankit-kumar-jat/iss-info',
     liveLink: 'http://issinfo.glitch.me/',
-    image: '/iss-info.png',
+    image: [
+      { type: 'image/avif', url: '/project-images/iss-info.avif' },
+      { type: 'image/webp', url: '/project-images/iss-info.webp' },
+      { type: 'image/png', url: '/project-images/iss-info.png' },
+    ],
   },
 ]
 

@@ -2,6 +2,7 @@ import { Link } from '@remix-run/react'
 import Section from '~/components/home/section'
 import { PROJECTS } from '~/config'
 import { ExternalLinkIcon, GitHubIcon } from '~/components/icons'
+import { Fragment } from 'react/jsx-runtime'
 
 function Projects() {
   return (
@@ -13,11 +14,24 @@ function Projects() {
             key={project.title}
           >
             <div className="col-span-1 md:text-right">
-              <img
-                src={project.image}
-                alt={`Image of ${project.title}`}
-                className="mx-auto aspect-video max-w-full rounded-xl border-2 bg-muted object-cover"
-              />
+              <picture>
+                {project.image.map(({ url, type }) => (
+                  <Fragment key={url}>
+                    {type === 'image/png' ? (
+                      <img
+                        src={url}
+                        alt={`Image of ${project.title}`}
+                        className="mx-auto aspect-video max-w-full rounded-xl border-2 bg-muted object-cover"
+                        width={1200}
+                        height={657}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <source srcSet={url} type={type} />
+                    )}
+                  </Fragment>
+                ))}
+              </picture>
             </div>
             <div className="col-span-1 max-w-3xl space-y-5 md:col-span-2">
               <div className="space-y-1">
