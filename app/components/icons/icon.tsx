@@ -5,6 +5,8 @@ import {
   LinkdinIcon,
   LogoIcon,
   TwitterIcon,
+  ExternalLinkIcon,
+  LoadingIcon,
 } from '~/components/icons'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
@@ -23,6 +25,10 @@ function Icon({ iconName, ...rest }: IconProps) {
       return <LogoIcon {...rest} />
     case 'Twitter':
       return <TwitterIcon {...rest} />
+    case 'External':
+      return <ExternalLinkIcon {...rest} />
+    case 'Loading':
+      return <LoadingIcon {...rest} />
     default:
       return null
   }
