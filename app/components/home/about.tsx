@@ -7,13 +7,23 @@ function About() {
     <Section title="About Me" id="about">
       <div className="grid gap-6 md:grid-cols-3">
         <div className="md:col-span-1">
-          <img
-            className="mx-auto max-w-full rounded-xl border-2 bg-muted"
-            src=""
-            alt="Image of Ankit kumar jat"
-            width={300}
-            height={300}
-          />
+          <div className="relative z-10 mx-auto max-w-80">
+            <div className="animate-blob absolute inset-0 -z-10 h-full w-full rounded-full bg-rose-600 opacity-55 mix-blend-multiply blur-2xl" />
+            <div className="animate-blob delay-2000 absolute inset-0 -z-10 h-full w-full rounded-full bg-yellow-600 opacity-55 mix-blend-multiply blur-2xl" />
+            <div className="delay-4000 animate-blob absolute inset-0 -z-10 h-full w-full rounded-full bg-purple-600 opacity-55 mix-blend-multiply blur-2xl" />
+            <picture>
+              <source srcSet="/me.avif" type="image/avif" />
+              <source srcSet="/me.webp" type="image/webp" />
+              <img
+                className="max-w-full rounded-xl border-2 bg-muted"
+                src="/me.jpg"
+                alt="Image of Ankit kumar jat"
+                width={320}
+                height={320}
+                loading="lazy"
+              />
+            </picture>
+          </div>
         </div>
         <article className="max-w-3xl space-y-4 text-foreground/85 md:col-span-2">
           <p>

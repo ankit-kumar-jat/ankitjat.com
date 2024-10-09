@@ -59,6 +59,18 @@ export default {
           '5': 'hsl(var(--chart-5))',
         },
       },
+      transitionDelay: { 2000: '2s', 4000: '4s' },
+      animation: {
+        blob: 'blob 8s infinite',
+      },
+      keyframes: {
+        blob: {
+          '0%': { transform: 'translate(0%, 0%) scale(1)' },
+          '20%': { transform: 'translate(15%, -25%) scale(0.9)' },
+          '66%': { transform: 'translate(-20% ,15%) scale(1.1)' },
+          '100%': { transform: 'translate(0%, 0%) scale(1)' },
+        },
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
