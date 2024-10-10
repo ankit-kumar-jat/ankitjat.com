@@ -6,7 +6,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
   useLocation,
   type ShouldRevalidateFunction,
 } from '@remix-run/react'
@@ -16,7 +15,7 @@ import { PageLayout } from '~/components/layout'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { ErrorPage } from '~/components/error'
 import { cn, getErrorMessage } from '~/lib/utils'
-import { getHints } from '~/lib/client-hints'
+import { ClientHintCheck, getHints } from '~/lib/client-hints'
 import { getTheme } from '~/lib/theme.server'
 import { useTheme } from '~/routes/resources.theme-switch'
 
@@ -62,6 +61,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <ClientHintCheck />
       </body>
     </html>
   )
