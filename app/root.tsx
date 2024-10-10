@@ -51,6 +51,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <Meta />
         <Links />
+        {/* This should be in head to prevent blinking */}
+        <ClientHintCheck />
       </head>
       <body
         className={cn(
@@ -61,7 +63,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
-        <ClientHintCheck />
       </body>
     </html>
   )
