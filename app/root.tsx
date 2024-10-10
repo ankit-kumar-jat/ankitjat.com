@@ -1,4 +1,4 @@
-import type { LinksFunction } from '@remix-run/cloudflare'
+import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
 import {
   Link,
   Links,
@@ -6,27 +6,59 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
   useLocation,
+  type ShouldRevalidateFunction,
 } from '@remix-run/react'
 
 import '~/tailwind.css'
 import { PageLayout } from '~/components/layout'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { ErrorPage } from '~/components/error'
-import { getErrorMessage } from '~/lib/utils'
+import { cn, getErrorMessage } from '~/lib/utils'
+import { getHints } from '~/lib/client-hints'
+import { getTheme } from '~/lib/theme.server'
+import { useTheme } from '~/routes/resources.theme-switch'
 
-export const links: LinksFunction = () => []
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  return {
+    requestInfo: {
+      hints: getHints(request),
+      path: new URL(request.url).pathname,
+      userPrefs: {
+        theme: getTheme(request),
+      },
+    },
+  }
+}
+
+export type RootLoaderType = typeof loader
+
+export const shouldRevalidate: ShouldRevalidateFunction = ({ formAction }) => {
+  if (formAction === '/resources/theme-switch') {
+    return true // only revalidate switch theme action is called
+  }
+  return false
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const theme = useTheme()
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <Meta />
         <Links />
       </head>
-      <body className="dark min-h-screen bg-background text-foreground">
+      <body
+        className={cn(
+          'min-h-screen bg-background text-foreground',
+          theme === 'dark' ? 'dark' : 'light',
+        )}
+      >
         {children}
         <ScrollRestoration />
         <Scripts />

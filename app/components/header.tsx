@@ -1,10 +1,18 @@
-import { Link, NavLink, NavLinkProps } from '@remix-run/react'
+import {
+  Link,
+  NavLink,
+  NavLinkProps,
+  useRouteLoaderData,
+} from '@remix-run/react'
 import { useEffect, useState } from 'react'
 import { LogoIcon } from '~/components/icons'
 import { NAV_LINKS } from '~/config'
 import { cn } from '~/lib/utils'
+import { ThemeSwitch } from '~/routes/resources.theme-switch'
+import type { RootLoaderType } from '~/root'
 
 function Header() {
+  const rootLoaderData = useRouteLoaderData<RootLoaderType>('root')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -37,7 +45,7 @@ function Header() {
         <div
           className={cn(
             'absolute inset-0 -z-10 bg-transparent',
-            isScrolled && 'bg-background/40 backdrop-blur-lg',
+            isScrolled && 'bg-background/30 backdrop-blur-lg',
           )}
         />
         <div
@@ -69,9 +77,14 @@ function Header() {
               ))}
             </ul>
           </nav>
+          <div className="ml-auto lg:ml-3">
+            <ThemeSwitch
+              userPreference={rootLoaderData?.requestInfo.userPrefs.theme}
+            />
+          </div>
           <button
             onClick={toggleMenuState}
-            className="z-30 ml-auto flex h-11 w-11 flex-col items-start justify-center gap-2 px-1 py-2 lg:hidden"
+            className="z-30 ml-3 flex h-11 w-11 flex-col items-start justify-center gap-2 px-1 py-2 lg:hidden"
           >
             <span className="sr-only">open/hide menu</span>
             <span
