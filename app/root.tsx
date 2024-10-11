@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
   useLocation,
+  useRouteLoaderData,
   type ShouldRevalidateFunction,
 } from '@remix-run/react'
 
@@ -17,7 +18,6 @@ import { ErrorPage } from '~/components/error'
 import { cn, getErrorMessage } from '~/lib/utils'
 import { ClientHintCheck, getHints } from '~/lib/client-hints'
 import { getTheme } from '~/lib/theme.server'
-import { useTheme } from '~/routes/resources.theme-switch'
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
   return {
@@ -41,7 +41,10 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({ formAction }) => {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const theme = useTheme()
+  const data = useRouteLoaderData<typeof loader>('root')
+
+  const theme =
+    data?.requestInfo.userPrefs.theme ?? data?.requestInfo.hints.theme
   return (
     <html lang="en">
       <head>
@@ -82,17 +85,6 @@ export function ErrorBoundary() {
   return (
     <GeneralErrorBoundary
       statusHandlers={{
-        404: () => (
-          <ErrorPage
-            title="404 - Oh no, you found a page that's missing stuff."
-            subtitle={`"${location.pathname}" is not a page. So sorry.`}
-            action={
-              <Link to="/" className="underline">
-                Go home
-              </Link>
-            }
-          />
-        ),
         400: ({ error }) => (
           <ErrorPage
             title="400 - Oh no, you did something wrong."
