@@ -16,29 +16,29 @@ const SOCIAL_MEDIA = [
 
 const PROJECTS = [
   {
-    title: 'Tomeki',
-    description:
-      'Tomeki allows users to discover and explore millions of books with ease from openlibrary. Built with a focus on performance and user experience.',
-    tech: ['RemixJS', 'React', 'TypeScript', 'TailwindCSS', 'Cloudflare'],
-    githubLink: 'https://github.com/ankit-kumar-jat/tomeki',
-    liveLink: 'https://www.tomeki.site',
-    image: [
-      { type: 'image/avif', url: '/project-images/tomeki.avif' },
-      { type: 'image/webp', url: '/project-images/tomeki.webp' },
-      { type: 'image/png', url: '/project-images/tomeki.png' },
-    ],
-  },
-  {
     title: 'Tomeki Blog',
     description:
       'A space for book reviews and recommendations, helping readers discover new books across genres. Built for book lovers, the blog offers curated insights and recommendations.',
     tech: ['RemixJS', 'React', 'TypeScript', 'TailwindCSS', 'Cloudflare'],
     githubLink: 'https://github.com/ankit-kumar-jat/tomeki',
-    liveLink: 'https://www.tomeki.site/blogs',
+    liveLink: 'https://www.tomeki.site',
     image: [
       { type: 'image/avif', url: '/project-images/tomeki-blog.avif' },
       { type: 'image/webp', url: '/project-images/tomeki-blog.webp' },
       { type: 'image/png', url: '/project-images/tomeki-blog.png' },
+    ],
+  },
+  {
+    title: 'Tomeki Books',
+    description:
+      'Tomeki allows users to discover and explore millions of books with ease from openlibrary. Built with a focus on performance and user experience.',
+    tech: ['RemixJS', 'React', 'TypeScript', 'TailwindCSS', 'Cloudflare'],
+    githubLink: 'https://github.com/ankit-kumar-jat/tomeki',
+    liveLink: 'https://books.tomeki.site',
+    image: [
+      { type: 'image/avif', url: '/project-images/tomeki.avif' },
+      { type: 'image/webp', url: '/project-images/tomeki.webp' },
+      { type: 'image/png', url: '/project-images/tomeki.png' },
     ],
   },
   {
