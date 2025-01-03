@@ -16,6 +16,25 @@ const SOCIAL_MEDIA = [
 
 const PROJECTS = [
   {
+    title: 'Algostream',
+    description:
+      'A Trading automation platform where users can login, register, link Angelone (stock broker) account And create signals with api keys those signals are used to automate trades based on webhook alerts. Has order queue and webhooks for order status updates.',
+    tech: [
+      'RemixJS',
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'Prisma',
+      'PostgreSQL',
+    ],
+    githubLink: 'https://github.com/ankit-kumar-jat/alogstream',
+    liveLink: 'https://algostream.in',
+    image: [
+      { type: 'image/avif', url: '/project-images/algostream.avif' },
+      { type: 'image/png', url: '/project-images/algostream.png' },
+    ],
+  },
+  {
     title: 'Tomeki Blog',
     description:
       'A space for book reviews and recommendations, helping readers discover new books across genres. Built for book lovers, the blog offers curated insights and recommendations.',
